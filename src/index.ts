@@ -31,15 +31,24 @@ export default class PARAMS {
     }
 
     public pick(list: string[]) {
+        const that = this;
         return list.reduce((acc, _key) => {
-            if(this.queries && this.queries[_key]) {
-                acc[_key] = this.queries[_key];
+            if(that.queries && that.queries[_key]) {
+                acc[_key] = that.queries[_key];
             }
             return acc;
         }, Object.create(null));
     }
 
-    public exclude(list: string[]) {}
+    public exclude(list: string[]) {
+        const that = this;
+        return Object.keys(this.queries).reduce((acc, _key) => {
+            if(!list.includes(_key)) {
+                acc[_key] = that.queries[_key];
+            }
+            return acc;
+        }, Object.create(null));
+    }
 
     public remake(object: Object) {}
 }
