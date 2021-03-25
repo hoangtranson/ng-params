@@ -12,7 +12,7 @@ describe('Ng Params Pass Cases', () => {
   });
 
 
-  test('first case', () => {
+  test('get queries', () => {
     windowSpy.mockImplementation(() => ({
       location: {
         search: "?so_medium=StackOverflow&so_source=SiteNav"
@@ -20,5 +20,16 @@ describe('Ng Params Pass Cases', () => {
     }));
     const _url = new PARAMS();
     expect(_url.queries.so_medium).toBe('StackOverflow');
+  });
+
+  test.only('pick', () => {
+    windowSpy.mockImplementation(() => ({
+      location: {
+        search: "?so_medium=StackOverflow&so_source=SiteNav"
+      }
+    }));
+    const _url = new PARAMS();
+    const result = _url.pick(['so_source'])
+    expect(result.so_source).toBe('SiteNav');
   });
 })

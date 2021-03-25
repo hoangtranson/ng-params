@@ -30,7 +30,14 @@ export default class PARAMS {
             }, Object.create(null));
     }
 
-    public pick(list: string[]) {}
+    public pick(list: string[]) {
+        return list.reduce((acc, _key) => {
+            if(this.queries && this.queries[_key]) {
+                acc[_key] = this.queries[_key];
+            }
+            return acc;
+        }, Object.create(null));
+    }
 
     public exclude(list: string[]) {}
 
