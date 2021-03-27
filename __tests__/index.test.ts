@@ -29,7 +29,7 @@ describe('Ng Params Pass Cases', () => {
       }
     }));
     const _url = new PARAMS();
-    const result = _url.pick(['so_source'])
+    const result = _url.pick(['so_source']);
     expect(result.so_source).toBe('SiteNav');
   });
 
