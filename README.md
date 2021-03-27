@@ -11,6 +11,8 @@
 - Prettier
 - tslint
 
+## Install
+
 - Npm
     `npm i ng-params`
 - Yarn
