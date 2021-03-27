@@ -4,7 +4,7 @@ export default class PARAMS {
     constructor(_option?: PARAM_OPTIONS | {});
     get location(): string;
     get queries(): any;
-    pick(list: string[]): void;
-    exclude(list: string[]): void;
+    pick(list: string[]): any;
+    exclude(list: string[]): any;
     remake(object: Object): void;
 }
